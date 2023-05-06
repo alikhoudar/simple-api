@@ -15,5 +15,11 @@ pipeline {
         sh 'pytest -v -k "test_api"'
       }
     }
+
+    stage('Build Docker Image') {
+      steps {
+        sh 'docker build -t my-api .'
+      }
+    }
   }
 }
